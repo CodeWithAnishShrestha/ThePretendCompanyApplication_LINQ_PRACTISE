@@ -46,8 +46,24 @@ namespace ThePretendCompanyApplication
                                  Manager = emp.IsManager,
                                  Department = emp.DepartmentId
                              };
-            //Console.ReadKey();
-            Console.WriteLine(resultList);
+            foreach (var employee in resultList)
+            {
+                Console.WriteLine($"First Name:{employee.FirstName} {employee.LastName}");
+                Console.WriteLine($"Annual Salary :{employee.AnnualSalary}");
+                Console.WriteLine($"Manager :{employee.Manager}");
+                Console.WriteLine($"Department :{employee.Department}");
+
+                Console.WriteLine();
+            }
+
+            var averageAnnualSalary = resultList.Average(a => a.AnnualSalary);
+            var highestAnnualSalary = resultList.Max(a => a.AnnualSalary);
+            var lowestAnnualSalary = resultList.Min(a => a.AnnualSalary);
+            Console.WriteLine($"Average Annual Salary :{averageAnnualSalary}");
+            Console.WriteLine($"Average Highest Salary :{highestAnnualSalary}");
+            Console.WriteLine($"Average :loswest Salary :{lowestAnnualSalary}");
+
+            Console.ReadKey();
         }
     }
 }
